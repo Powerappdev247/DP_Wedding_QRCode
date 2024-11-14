@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David and Priscilla Wedding Invitee List</title>
+    <style>
+        /* Basic styles */
+        body {
+            background-color: #2e8b57; /* Light emerald green */
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 26px;
+            color: #f7d9a4; /* Lighter champagne gold */
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin: 20px 0;
+        }
+
+        #search-bar {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #f7d9a4;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #invitee-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+        }
+
+        .invitee {
+            padding: 10px;
+            background-color: #eaf7f1;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .invitee:hover {
+            cursor: pointer;
+            background-color: #d4f1e1;
+        }
+
+        .highlight {
+            background-color: #f7d9a4; /* Champagne gold for highlight */
+            color: #333;
+            font-weight: bold;
+        }
+
+        #welcome-message {
+            font-size: 20px;
+            color: #f7d9a4;
+            animation: fade-in-out 10s forwards;
+            margin-top: 20px;
+        }
+
+        /* Animation for welcome message */
+        @keyframes fade-in-out {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Adding number style */
+        .invitee-number {
+            margin-right: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">
+        🎊 David and Priscilla Wedding Invitee List 🎊
+    </h1>
+
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search your name..." oninput="filterNames()">
+    </div>
+
+    <ul id="invitee-list">
+        <!-- List of invitees -->
+        <li class="invitee" data-name="Achukwu Kingsley Odili"><span class="invitee-number">1.</span> Achukwu Kingsley Odili</li>
+        <li class="invitee" data-name="Mary Ayokanmi Ore"><span class="invitee-number">2.</span> Mary Ayokanmi Ore</li>
+        <li class="invitee" data-name="Chisom Joy"><span class="invitee-number">3.</span> Chisom Joy</li>
+        <li class="invitee" data-name="Ojo-Martins Oluwafemi Samson"><span class="invitee-number">4.</span> Ojo-Martins Oluwafemi Samson</li>
+        <li class="invitee" data-name="Chidi Achukwu"><span class="invitee-number">5.</span> Chidi Achukwu</li>
+        <li class="invitee" data-name="Jijiwa Esdavo David"><span class="invitee-number">6.</span> Jijiwa Esdavo David</li>
+        <li class="invitee" data-name="Oyewole Ojora"><span class="invitee-number">7.</span> Oyewole Ojora</li>
+        <li class="invitee" data-name="Olamide Temitope Ekpenyong"><span class="invitee-number">8.</span> Olamide Temitope Ekpenyong</li>
+        <li class="invitee" data-name="Joe Terhile"><span class="invitee-number">9.</span> Joe Terhile</li>
+        <li class="invitee" data-name="Adeyemo Opeyemi Hannah"><span class="invitee-number">10.</span> Adeyemo Opeyemi Hannah</li>
+        <li class="invitee" data-name="Chisom Godwin Odoemelam"><span class="invitee-number">11.</span> Chisom Godwin Odoemelam</li>
+        <li class="invitee" data-name="Akinpelu Samuel"><span class="invitee-number">12.</span> Akinpelu Samuel</li>
+        <li class="invitee" data-name="Brenda Koko"><span class="invitee-number">13.</span> Brenda Koko</li>
+        <li class="invitee" data-name="Mayo Rebecca Agamah"><span class="invitee-number">14.</span> Mayo Rebecca Agamah</li>
+        <li class="invitee" data-name="Emmanuel Ezenwa"><span class="invitee-number">15.</span> Emmanuel Ezenwa</li>
+        <li class="invitee" data-name="Abiodun Adetayo"><span class="invitee-number">16.</span> Abiodun Adetayo</li>
+        <li class="invitee" data-name="Abiola Adetayo"><span class="invitee-number">17.</span> Abiola Adetayo</li>
+        <li class="invitee" data-name="Olagunju Haadi"><span class="invitee-number">18.</span> Olagunju Haadi</li>
+        <li class="invitee" data-name="Maduako Excellent"><span class="invitee-number">19.</span> Maduako Excellent</li>
+        <li class="invitee" data-name="Jessica Obodo -Elue"><span class="invitee-number">20.</span> Jessica Obodo -Elue</li>
+        <li class="invitee" data-name="Marvellous Ojini"><span class="invitee-number">21.</span> Marvellous Ojini</li>
+        <li class="invitee" data-name="Ogunbadejo Abisola Nimotalahi"><span class="invitee-number">2.</span> Ogunbadejo Abisola Nimotalahi</li>
+        <li class="invitee" data-name="Aniakor Helen Chidimma "><span class="invitee-number">23.</span> Aniakor Helen Chidimma </li>
+        <li class="invitee" data-name="Nicholas Oluwatosin Jacintho"><span class="invitee-number">24.</span> Nicholas Oluwatosin Jacintho</li>
+        <li class="invitee" data-name="Gbuzue Odirah & Chioma Anah"><span class="invitee-number">25.</span> Gbuzue Odirah & Chioma Anah</li>
+        <li class="invitee" data-name="Precious Chibuike Ukaegbu"><span class="invitee-number">26.</span> Precious Chibuike Ukaegbu</li>
+        <li class="invitee" data-name="Opeyemi Ogundara"><span class="invitee-number">27.</span> Opeyemi Ogundara</li>
+        <li class="invitee" data-name="Ojeh Uchechukwu James"><span class="invitee-number">28.</span> Ojeh Uchechukwu James</li>
+        <li class="invitee" data-name="Ikechukwu Isabella Joy"><span class="invitee-number">29.</span> Ikechukwu Isabella Joy</li>
+        <li class="invitee" data-name="Elizabeth Olawale"><span class="invitee-number">30.</span> Elizabeth Olawale</li>
+        <li class="invitee" data-name="Falodi Oluwatimilehin Michael"><span class="invitee-number">31.</span> Falodi Oluwatimilehin Michael</li>
+        <li class="invitee" data-name="Emmanuella Azegba"><span class="invitee-number">32.</span> Emmanuella Azegba</li>
+        <li class="invitee" data-name="Oliyide Peter"><span class="invitee-number">33.</span> Oliyide Peter</li>
+        <li class="invitee" data-name="Kazeem Yusuf Olawale "><span class="invitee-number">34.</span> Kazeem Yusuf Olawale </li>
+        <li class="invitee" data-name="Abdulrahman Olakunle Ali"><span class="invitee-number">35.</span> Abdulrahman Olakunle Ali</li>
+        <li class="invitee" data-name="James Temitope Ilesanmi "><span class="invitee-number">36.</span> James Temitope Ilesanmi </li>
+        <li class="invitee" data-name="Funmilayo Oyekanmi"><span class="invitee-number">37.</span> Funmilayo Oyekanmi</li>
+        <li class="invitee" data-name="Alebiosu Opeyemi"><span class="invitee-number">38.</span> Alebiosu Opeyemi</li>
+        <li class="invitee" data-name="Ifeoluwa Adedipe"><span class="invitee-number">39.</span> Ifeoluwa Adedipe</li>
+        <li class="invitee" data-name="Chioma Oko"><span class="invitee-number">40.</span> Chioma Oko</li>
+        <li class="invitee" data-name="Pst Fortune Omo-Iyare "><span class="invitee-number">41.</span> Pst Fortune Omo-Iyare </li>
+        <li class="invitee" data-name="Favour Okoh "><span class="invitee-number">42.</span> Favour Okoh </li>
+        <li class="invitee" data-name="Nathaniel Gabriel"><span class="invitee-number">43.</span> Nathaniel Gabriel</li>
+        <li class="invitee" data-name="Oreval Julius"><span class="invitee-number">44.</span> Oreval Julius</li>
+        <li class="invitee" data-name="Adenike Ajao"><span class="invitee-number">45.</span> Adenike Ajao</li>
+        <li class="invitee" data-name="Okorie Valerie"><span class="invitee-number">46.</span> Okorie Valerie</li>
+        <li class="invitee" data-name="Dom-Okeke Miracle E."><span class="invitee-number">47.</span> Dom-Okeke Miracle E.</li>
+        <li class="invitee" data-name="Lambo Segun Adebayo"><span class="invitee-number">48.</span> Lambo Segun Adebayo</li>
+        <li class="invitee" data-name="Deborah Aribo"><span class="invitee-number">49.</span> Deborah Aribo</li>
+        <li class="invitee" data-name="Nelson Tochukwu Ndumdiuto"><span class="invitee-number">50.</span> Nelson Tochukwu Ndumdiuto</li>
+        <li class="invitee" data-name="Erioluwa Adeyinka"><span class="invitee-number">51.</span> Erioluwa Adeyinka</li>
+        <li class="invitee" data-name="Friday Enobong"><span class="invitee-number">52.</span> Friday Enobong</li>
+        <li class="invitee" data-name="George & Blessing Ekwuribe"><span class="invitee-number">53.</span> George & Blessing Ekwuribe</li>
+        <li class="invitee" data-name="Grace Olamijulo "><span class="invitee-number">54.</span> Grace Olamijulo </li>
+        <li class="invitee" data-name="Mbonu Ngozi Lilian "><span class="invitee-number">55.</span> Mbonu Ngozi Lilian </li>
+        <li class="invitee" data-name="Chidera Judith Dieli "><span class="invitee-number">56.</span> Chidera Judith Dieli </li>
+        <li class="invitee" data-name="Yazeed Jibirin-Yaro"><span class="invitee-number">57.</span> Yazeed Jibirin-Yaro</li>
+        <li class="invitee" data-name="Farouk Lawal Adetonaola"><span class="invitee-number">58.</span> Farouk Lawal Adetonaola</li>
+        <li class="invitee" data-name="Aderiye Daniel Ademola. "><span class="invitee-number">59.</span> Aderiye Daniel Ademola. </li>
+        <li class="invitee" data-name="James Oluwatosin "><span class="invitee-number">60.</span> James Oluwatosin </li>
+        <li class="invitee" data-name="Mr Tomisin and Mrs Tolulope Adeyewa "><span class="invitee-number">61.</span> Mr Tomisin and Mrs Tolulope Adeyewa </li>
+        <li class="invitee" data-name="Samuel Edith"><span class="invitee-number">62.</span> Samuel Edith</li>
+        <li class="invitee" data-name="Bright Julius Udoh"><span class="invitee-number">63.</span> Bright Julius Udoh</li>
+        <li class="invitee" data-name="Hussein David Adebayo"><span class="invitee-number">64.</span> Hussein David Adebayo</li>
+        <li class="invitee" data-name="Stephen Omo Divine"><span class="invitee-number">65.</span> Stephen Omo Divine</li>
+        <li class="invitee" data-name="Divinefavour Opeyemi Apata"><span class="invitee-number">66.</span> Divinefavour Opeyemi Apata</li>
+        <li class="invitee" data-name="Precious Chisom"><span class="invitee-number">67.</span> Precious Chisom</li>
+        <li class="invitee" data-name="Micah Blessing Onyinyechi"><span class="invitee-number">68.</span> Micah Blessing Onyinyechi</li>
+        <li class="invitee" data-name="Miracle Ryan"><span class="invitee-number">69.</span> Miracle Ryan</li>
+        <li class="invitee" data-name="Emediong Paul"><span class="invitee-number">70.</span> Emediong Paul</li>
+        <li class="invitee" data-name="Mojolaoluwa Obisesan"><span class="invitee-number">71.</span> Mojolaoluwa Obisesan</li>
+        <li class="invitee" data-name="Ilenikhiena Miracle Irobosa"><span class="invitee-number">72.</span> Ilenikhiena Miracle Irobosa</li>
+        <li class="invitee" data-name="Oluwapelumi Fashola"><span class="invitee-number">73.</span> Oluwapelumi Fashola</li>
+        <li class="invitee" data-name="Ijeoma Marcel"><span class="invitee-number">74.</span> Ijeoma Marcel</li>
+        <li class="invitee" data-name="Angela Abdul"><span class="invitee-number">75.</span> Angela Abdul</li>
+        <li class="invitee" data-name="Ganiyu Amirat Bisola"><span class="invitee-number">76.</span> Ganiyu Amirat Bisola</li>
+        <li class="invitee" data-name="Ebunoluwa Oni"><span class="invitee-number">77.</span> Ebunoluwa Oni</li>
+        <li class="invitee" data-name="Clinton Mekwunye"><span class="invitee-number">78.</span> Clinton Mekwunye</li>
+        <li class="invitee" data-name="Tomiwa Olawale"><span class="invitee-number">79.</span> Tomiwa Olawale</li>
+        <li class="invitee" data-name="Tamilore Labisi"><span class="invitee-number">80.</span> Tamilore Labisi</li>
+        <li class="invitee" data-name="Dayo Adeyemi "><span class="invitee-number">81.</span> Dayo Adeyemi </li>
+        <li class="invitee" data-name="Rachael Esanola "><span class="invitee-number">82.</span> Rachael Esanola </li>
+        <li class="invitee" data-name="Nwaizu Henry "><span class="invitee-number">83.</span> Nwaizu Henry </li>
+        <li class="invitee" data-name="Yushab Abolore Ayomide"><span class="invitee-number">84.</span> Yushab Abolore Ayomide</li>
+        <li class="invitee" data-name="Mr Waheed Shittu"><span class="invitee-number">85.</span> Mr Waheed Shittu/li>
+        <li class="invitee" data-name="Oluwakemi Akindele"><span class="invitee-number">86.</span> Oluwakemi Akindele</li>
+        <li class="invitee" data-name="Samuel Omokunle Tolulope"><span class="invitee-number">87.</span> Samuel Omokunle Tolulope</li>
+        <li class="invitee" data-name="Oweazim Afamefuna"><span class="invitee-number">88.</span> Oweazim Afamefuna</li>
+        <li class="invitee" data-name="Adesola Adegeye"><span class="invitee-number">89.</span> Adesola Adegeye</li>
+        <li class="invitee" data-name="Gloria Francis"><span class="invitee-number">90.</span> Gloria Francis</li>
+        <li class="invitee" data-name="Femilee Olawuyi"><span class="invitee-number">91.</span> Femilee Olawuyi</li>
+        <li class="invitee" data-name="Udeoji Chisom"><span class="invitee-number">92.</span> Udeoji Chisom</li>
+        <li class="invitee" data-name="Mr and Mrs Denu Bon"><span class="invitee-number">93.</span> Mr and Mrs Denu Bon</li>
+        <li class="invitee" data-name="Vincent Egbe"><span class="invitee-number">94.</span> Vincent Egbe</li>
+        <li class="invitee" data-name="Omotayo Esther Araoye"><span class="invitee-number">95.</span> Omotayo Esther Araoye</li>
+        <li class="invitee" data-name="Oluwafikayomi Adeleke"><span class="invitee-number">96.</span> Oluwafikayomi Adeleke</li>
+        <li class="invitee" data-name="Aro David"><span class="invitee-number">97.</span> Aro David</li>
+        <li class="invitee" data-name="Jennifer Okwe"><span class="invitee-number">98.</span> Jennifer Okwe</li>
+        <li class="invitee" data-name="Philip Philip"><span class="invitee-number">99.</span> Philip Philip</li>
+        <li class="invitee" data-name="Olori Simbiat Tolulope"><span class="invitee-number">100.</span> Olori Simbiat Tolulope</li>
+        <li class="invitee" data-name="Deborah Adeniyi"><span class="invitee-number">101.</span> Deborah Adeniyi</li>
+        <li class="invitee" data-name="Oluwatobiloba Adebayo"><span class="invitee-number">102.</span> Oluwatobiloba Adebayo</li>
+        <li class="invitee" data-name="Oluchi Gbede"><span class="invitee-number">103.</span> Oluchi Gbede</li>
+        <li class="invitee" data-name="Mary Titus"><span class="invitee-number">104.</span> Mary Titus</li>
+        <li class="invitee" data-name="Uwana Ubokudom"><span class="invitee-number">105.</span> Uwana Ubokudom</li>
+        <li class="invitee" data-name="Adeyemi Anita"><span class="invitee-number">106.</span> Adeyemi Anita</li>
+        <li class="invitee" data-name="Nnadozie Praisea"><span class="invitee-number">107.</span> Nnadozie Praise </li>
+        <li class="invitee" data-name="Ekpo-otu Jeremiah Ekanem"><span class="invitee-number">108.</span> Ekpo-otu Jeremiah Ekanem</li>
+        <li class="invitee" data-name="Abu David"><span class="invitee-number">109.</span> Abu David </li>
+        <li class="invitee" data-name="Tosin Olomu "><span class="invitee-number">110.</span> Tosin Olomu</li>
+        <li class="invitee" data-name="Amarachi Aka-Okoye"><span class="invitee-number">111.</span> Amarachi Aka-Okoye</li>
+        <li class="invitee" data-name="Ukandu Kelechi Faith"><span class="invitee-number">112.</span> Ukandu Kelechi Faith</li>
+        <li class="invitee" data-name="Christopher Chigaemezu Enyeribe"><span class="invitee-number">113.</span> Christopher Chigaemezu Enyeribe</li>
+        <li class="invitee" data-name="Mr Daniel and Mrs Bright Abiola"><span class="invitee-number">114.</span> Mr Daniel and Mrs Bright Abiola</li>
+        <li class="invitee" data-name="Abiola Daniel "><span class="invitee-number">115.</span> Abiola Daniel </li>
+        <li class="invitee" data-name="Emy Benedict "><span class="invitee-number">116.</span> Emy Benedict </li>
+        <li class="invitee" data-name="Mr and Mrs Hope Ofuka"><span class="invitee-number">117.</span> Mr and Mrs Hope Ofuka</li>
+        <li class="invitee" data-name="Mr Joshua & Mrs Favour Emene & Parent"><span class="invitee-number">118.</span> Mr Joshua & Mrs Favour Emene & Parent</li>
+        <li class="invitee" data-name="Mrs Ayeni Olamide "><span class="invitee-number">119.</span> Mrs Ayeni Olamide </li>
+        <li class="invitee" data-name="Pearl LEADER WOG"><span class="invitee-number">120.</span> Pearl LEADER WOG</li>
+        <li class="invitee" data-name="Mr Moses George Ojo"><span class="invitee-number">121.</span> Mr Moses George Ojo</li>
+        <li class="invitee" data-name="Mr John and Mr Rollins Ojo"><span class="invitee-number">122.</span> Mr John and Mr Rollins Ojo</li>
+        <li class="invitee" data-name="Nwafor Blessing Onyinyechukwu"><span class="invitee-number">123.</span> Nwafor Blessing Onyinyechukwu</li>
+        <li class="invitee" data-name="Kelvin Eifuobhokhan"><span class="invitee-number">124.</span> Kelvin Eifuobhokhan</li>
+        <li class="invitee" data-name="Temola Olabisi"><span class="invitee-number">125.</span> Temola Olabisi</li>
+        <li class="invitee" data-name="Tioluwanimi Daramola"><span class="invitee-number">126.</span> Tioluwanimi Daramola</li>
+        <li class="invitee" data-name="Akodu Loveth"><span class="invitee-number">127.</span> Akodu Loveth</li>
+        <li class="invitee" data-name="Odusola Praise Naomi "><span class="invitee-number">128.</span> Odusola Praise Naomi </li>
+        <li class="invitee" data-name="Asoegwu Elizabeth"><span class="invitee-number">129.</span> Asoegwu Elizabeth</li>
+        <li class="invitee" data-name="Gospel Agu"><span class="invitee-number">130.</span> Gospel Agu</li>
+        <li class="invitee" data-name="Elijah Omosuyi"><span class="invitee-number">131.</span> Elijah Omosuyi</li>
+        <!-- Add other names as needed, each with a unique number -->
+    </ul>
+
+    <div id="welcome-message" style="display: none;">
+        💍 Welcome to the Holy Matrimony of David and Priscilla 💍
+    </div>
+
+    <script>
+        // Function to filter the invitee list based on search input
+        function filterNames() {
+            const searchValue = document.getElementById("search-bar").value.toLowerCase();
+            const invitees = document.querySelectorAll(".invitee");
+    
+            invitees.forEach(invitee => {
+                const name = invitee.getAttribute("data-name").toLowerCase();
+                invitee.style.display = name.includes(searchValue) ? "block" : "none";
+            });
+        }
+    
+        // Function to highlight and show welcome message upon clicking a name
+        document.getElementById("invitee-list").addEventListener("click", function(event) {
+            if (event.target.classList.contains("invitee")) {
+                // Hide all other invitees except the clicked one
+                document.querySelectorAll(".invitee").forEach(el => {
+                    if (el !== event.target) {
+                        el.style.display = "none";
+                    }
+                    el.classList.remove("highlight"); // Remove highlight from any previously selected name
+                });
+    
+                // Highlight the selected name
+                event.target.classList.add("highlight");
+    
+                // Show the welcome message with animation
+                const welcomeMessage = document.getElementById("welcome-message");
+                welcomeMessage.style.display = "block";
+    
+                // Remove the welcome message and check search bar after 10 seconds
+                setTimeout(() => {
+                    welcomeMessage.style.display = "none";
+                    event.target.classList.remove("highlight");
+    
+                    // Show all invitees again if the search bar is empty, otherwise refilter
+                    if (document.getElementById("search-bar").value === "") {
+                        document.querySelectorAll(".invitee").forEach(el => el.style.display = "block");
+                    } else {
+                        filterNames();
+                    }
+                }, 10000);
+            }
+        });
+    
+        // Add event listener to filter names whenever the search bar input changes
+        document.getElementById("search-bar").addEventListener("input", filterNames);
+    </script>
+</body>
+</html>
